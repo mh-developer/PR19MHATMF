@@ -1,4 +1,4 @@
-# Projektna naloga pri predmetu podatkovno rudarjenje
+# Analiza video iger ter platform
 ## Ekipa
 * Mitja Hrovatič
 * Anže Tomažin
