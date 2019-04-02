@@ -26,15 +26,28 @@ Vključujejo atribute:
 * Other_Sales - Preostala prodaja (v milijonih)
 * Global_Sales - Skupna svetovna prodaja.
 
-### Odkrivanje strukture podatkov
+### Analiza strukture podatkov
 Analizira smo podatke in ugotovili, da pri posameznih atributih prihaja do pomankljivosti. Pri nekaterih igrah ni podatka za leto izdaje ter so označene z *N/A*, naktere igre nimajo znanega založnika ter so označene z *Unknown*.
 
+**Izpis prvih petih vrstic podatkov**
+Rank | Name | Platform | Year | Genre | Publisher | NA_Sales | EU_Sales | JP_Sales | Other_Sales | Global_Sales
+---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ----
+1 | Wii Sports | Wii | 2006 | Sports | Nintendo | 41.49 | 29.02 | 3.77 | 8.46 | 82.74
+2 | Super Mario Bros. | NES | 1985 | Platform | Nintendo | 29.08 | 3.58 | 6.81 | 0.77 | 40.24
+3 | Mario Kart Wii | Wii | 2008 | Racing | Nintendo | 15.85 | 12.88 | 3.79 | 3.31 | 35.82
+4 | Wii Sports Resort | Wii | 2009 | Sports | Nintendo | 15.75 | 11.01 | 3.28 | 2.96 | 33
+5 | Pokemon Red/Pokemon Blue | GB | 1996 | Role-Playing | Nintendo | 11.27 | 8.89 | 10.22 | 1 | 31.37
+
+<br>
+
+**Pregled števila posameznih atributov**
 Število platform | Število iger | Število žanrov | Število založnikov | Skupno število prodanih iger (v milijonih)
 ---------------- | ------------ | -------------- | ------------------ | ----------------------------
 31               | 11493        | 12             | 579                | 8920.44
 
 <br>
 
+**Pregled iger po številu izdaj**
 Naziv igre | Število izdaj | Leta izdaje | Založnik 
  --------- | ------------- | ----------- | --------
 Need for Speed: Most Wanted | 12 | 2005, 2012, 2012, 2005, 2012, 2005, 2005, 2005, 2013, 2005, 2005, 2012 | Electronic Arts
@@ -53,12 +66,18 @@ Angry Birds Star Wars | 8 | 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013 | Act
 
 <br>
 <br>
+
+**Število iger proizvedenih po letih.** <br>
+Lahko vidimo, da je bil trend rasti do leta 2009, nato pa se je proizvodnja začela upočasnjevati.
 <img src="slike/stevilo_iger_proizvedenih_na_leto.png" alt="Število iger proizvedenih na leto">
+
+**Število iger po žanrih** <br>
+Kot lahko vidimo iz grafa, je največ akcijskih iger.
 <img src="slike/stevilo_iger_po_žanrih.png" alt="Število iger po žanrih">
 
 
 ## Cilji in vprašanja
-Tekom analize izbranih podatkov, bomo poizkušali doseči cilje oz. odgovoriti na naslednja vprašanja:
+Tekom analize izbranih podatkov, bomo poizkušali doseči spodnje cilje oz. odgovoriti na naslednja vprašanja:
 
 * Kakšne tržne deleže imajo posamezni založniki iger in platforme? Ali po kontinentih prevladujejo različni založniki in platforme?
 * Ali imajo založniki večji tržni delež, če izdajo več iger? Ali obratno?
