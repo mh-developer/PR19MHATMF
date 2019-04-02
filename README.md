@@ -29,7 +29,7 @@ Vključujejo atribute:
 ### Odkrivanje strukture podatkov
 Analizira smo podatke in ugotovili, da pri posameznih atributih prihaja do pomankljivosti. Pri nekaterih igrah ni podatka za leto izdaje ter so označene z *N/A*, naktere igre nimajo znanega založnika ter so označene z *Unknown*.
 
-Število platform | Število iger | Število žanrov | Število založnikov | Skupno število prodanih iger (milijon)
+Število platform | Število iger | Število žanrov | Število založnikov | Skupno število prodanih iger (v milijonih)
 ---------------- | ------------ | -------------- | ------------------ | ----------------------------
 31               | 11493        | 12             | 579                | 8920.44
 
@@ -49,19 +49,12 @@ Lego Batman 3: Beyond Gotham | 8 | 2014, 2014, 2014, 2014, 2014, 2014, 2014, 201
 LEGO The Hobbit | 8 | 2014, 2014, 2014, 2014, 2014, 2014, 2014, 2014 | Warner Bros. Interactive Entertainment
 FIFA 15 | 8 | 2014, 2014, 2014, 2014, 2014, 2014, 2014, 2014 | Electronic Arts
 Angry Birds Star Wars | 8 | 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013 | Activision
-Terraria | 8 | 2013, 2013, 2011, 2013, 2016, 2014, 2014, 2016 | 505 Games, Unknown, Screenlife
-FIFA Soccer 13 | 8 | 2012, 2012, 2012, 2012, 2012, 2012, 2012, 2012 | Electronic Arts
-Madden NFL 08 | 8 | 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007 | Electronic Arts
-Cars | 8 | 2006, 2006, 2006, 2006, 2006, 2006, 2006, 2006 | THQ
-LEGO Star Wars II: The Original Trilogy | 8 | 2006, 2006, 2006, 2006, 2006, 2006, 2006, 2006 | LucasArts, Activision
-Monopoly | 8 | 1994, 2008, 1997, 2008, 2008, 2008, 2010, 1999 | Hasbro Interactive, Electronic Arts
-LEGO Marvel's Avengers | 7 | 2016, 2016, 2016, 2016, 2016, 2016, 2016 | Warner Bros. Interactive Entertainment
-Lego Star Wars: The Force Awakens | 7 | 2016, 2016, 2016, 2016, 2016, 2016, 2016 | Warner Bros. Interactive Entertainment
+
 
 <br>
 <br>
-<img src="slike/stevilo_iger_proizvedenih_na_leto.png" alt="Število iger proizvedenih na leto" width="45%">
-<img src="slike/stevilo_iger_po_žanrih.png" alt="Število iger po žanrih" width="45%">
+<img src="slike/stevilo_iger_proizvedenih_na_leto.png" alt="Število iger proizvedenih na leto">
+<img src="slike/stevilo_iger_po_žanrih.png" alt="Število iger po žanrih">
 
 
 ## Cilji in vprašanja
