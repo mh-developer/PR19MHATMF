@@ -29,7 +29,7 @@ Vključujejo atribute:
 ### Analiza strukture podatkov
 Analizira smo podatke in ugotovili, da pri posameznih atributih prihaja do pomankljivosti. Pri nekaterih igrah ni podatka za leto izdaje ter so označene z *N/A*, naktere igre nimajo znanega založnika ter so označene z *Unknown*.
 
-**Izpis prvih petih vrstic podatkov**
+**Izpis prvih petih vrstic podatkov** <br>
 Rank | Name | Platform | Year | Genre | Publisher | NA_Sales | EU_Sales | JP_Sales | Other_Sales | Global_Sales
 ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ----
 1 | Wii Sports | Wii | 2006 | Sports | Nintendo | 41.49 | 29.02 | 3.77 | 8.46 | 82.74
@@ -40,14 +40,14 @@ Rank | Name | Platform | Year | Genre | Publisher | NA_Sales | EU_Sales | JP_Sal
 
 <br>
 
-**Pregled števila posameznih atributov**
+**Pregled števila posameznih atributov** <br>
 Število platform | Število iger | Število žanrov | Število založnikov | Skupno število prodanih iger (v milijonih)
 ---------------- | ------------ | -------------- | ------------------ | ----------------------------
 31               | 11493        | 12             | 579                | 8920.44
 
 <br>
 
-**Pregled iger po številu izdaj**
+**Pregled iger po številu izdaj** <br>
 Naziv igre | Število izdaj | Leta izdaje | Založnik 
  --------- | ------------- | ----------- | --------
 Need for Speed: Most Wanted | 12 | 2005, 2012, 2012, 2005, 2012, 2005, 2005, 2005, 2013, 2005, 2005, 2012 | Electronic Arts
