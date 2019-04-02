@@ -36,7 +36,7 @@ Analizira smo podatke in ugotovili, da pri posameznih atributih prihaja do poman
 <br>
 
 Naziv igre | Število izdaj | Leta izdaje | Založnik 
- - | - | - | -
+ --------- | ------------- | ----------- | --------
 Need for Speed: Most Wanted | 12 | 2005, 2012, 2012, 2005, 2012, 2005, 2005, 2005, 2013, 2005, 2005, 2012 | Electronic Arts
 LEGO Marvel Super Heroes | 9 | 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013 | Warner Bros. Interactive Entertainment
 FIFA 14 | 9 | 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013 | Electronic Arts
@@ -57,10 +57,11 @@ LEGO Star Wars II: The Original Trilogy | 8 | 2006, 2006, 2006, 2006, 2006, 2006
 Monopoly | 8 | 1994, 2008, 1997, 2008, 2008, 2008, 2010, 1999 | Hasbro Interactive, Electronic Arts
 LEGO Marvel's Avengers | 7 | 2016, 2016, 2016, 2016, 2016, 2016, 2016 | Warner Bros. Interactive Entertainment
 Lego Star Wars: The Force Awakens | 7 | 2016, 2016, 2016, 2016, 2016, 2016, 2016 | Warner Bros. Interactive Entertainment
+
 <br>
 <br>
-<img src="slike/stevilo_iger_proizvedenih_na_leto.png" alt="Število iger proizvedenih na leto" width="49%">
-<img src="slike/stevilo_iger_po_žanrih.png" alt="Število iger po žanrih" width="49%">
+<img src="slike/stevilo_iger_proizvedenih_na_leto.png" alt="Število iger proizvedenih na leto" width="45%">
+<img src="slike/stevilo_iger_po_žanrih.png" alt="Število iger po žanrih" width="45%">
 
 
 ## Cilji in vprašanja
