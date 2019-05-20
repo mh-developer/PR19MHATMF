@@ -4,6 +4,7 @@ scipy
 Pillow
 matplotlib
 sklearn
+seaborn
 Orange3
 Orange3-Associate
 jupyter
