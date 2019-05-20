@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Priporočilni sistem</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.6.3/papaparse.js"
+        integrity="sha256-P4TsE1nrEXYf5l55N6DqCHvL2t5CyDGbLHD1RKQG79s=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div id="data_table" class="container mt-3">
+        <div class="toolbar">
+            <div class="form-row align-items-center">
+                <div class="col my-1">
+                    <label class="mr-sm-2" for="platform_select">Platform</label>
+                    <select class="custom-select mr-sm-2 dropdown_selected" id="platform_select">
+                        <option value="" selected>Choose...</option>
+                    </select>
+                </div>
+                <div class="col my-1">
+                    <label class="mr-sm-2" for="min_year_select">Min. Year</label>
+                    <select class="custom-select mr-sm-2 dropdown_selected" id="min_year_select">
+                        <option value="" selected>Choose...</option>
+                    </select>
+                </div>
+                <div class="col my-1">
+                    <label class="mr-sm-2" for="max_year_select">Max. Year</label>
+                    <select class="custom-select mr-sm-2 dropdown_selected" id="max_year_select">
+                        <option value="" selected>Choose...</option>
+                    </select>
+                </div>
+                <div class="col my-1">
+                    <label class="mr-sm-2" for="genre_select">Genre</label>
+                    <select class="custom-select mr-sm-2 dropdown_selected" id="genre_select">
+                        <option value="" selected>Choose...</option>
+                    </select>
+                </div>
+                <div class="col my-1">
+                    <label class="mr-sm-2" for="publisher_select">Publisher</label>
+                    <select class="custom-select mr-sm-2 dropdown_selected" id="publisher_select">
+                        <option value="" selected>Choose...</option>
+                    </select>
+                </div>
+                <div class="col my-1">
+                    <label class="mr-sm-2" for="developer_select">Developer</label>
+                    <select class="custom-select mr-sm-2 dropdown_selected" id="developer_select">
+                        <option value="" selected>Choose...</option>
+                    </select>
+                </div>
+                <div class="col my-1">
+                    <label class="mr-sm-2" for="rating_select">Rating</label>
+                    <select class="custom-select mr-sm-2 dropdown_selected" id="rating_select">
+                        <option value="" selected>Choose...</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="data_table mt-3 table-responsive">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Platform</th>
+                        <th scope="col">Year_of_Release</th>
+                        <th scope="col">Genre</th>
+                        <th scope="col">Publisher</th>
+                        <th scope="col">Global_players</th>
+                        <th scope="col">Critic_Score</th>
+                        <th scope="col">Critic_Count</th>
+                        <th scope="col">User_Score</th>
+                        <th scope="col">User_Count</th>
+                        <th scope="col">Developer</th>
+                        <th scope="col">Rating</th>
+                        <th scope="col">Ratio</th>
+                    </tr>
+                </thead>
+                <tbody id="table_body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+
+        function getPlatforms(data) {
+            let platforms_unique = new Set()
+
+            for (key in data) {
+                platforms_unique.add(data[key]["Platform"])
+            }
+            return platforms_unique
+        }
+
+        function getGenre(data) {
+            let genre_unique = new Set()
+
+            for (key in data) {
+                genre_unique.add(data[key]["Genre"])
+            }
+            return genre_unique
+        }
+
+        function getPublisher(data) {
+            let publisher_unique = new Set()
+
+            for (key in data) {
+                publisher_unique.add(data[key]["Publisher"])
+            }
+            return publisher_unique
+        }
+
+        function getDeveloper(data) {
+            let developer_unique = new Set()
+
+            for (key in data) {
+                developer_unique.add(data[key]["Developer"])
+            }
+            return developer_unique
+        }
+
+        function getRating(data) {
+            let rating_unique = new Set()
+
+            for (key in data) {
+                rating_unique.add(data[key]["Rating"])
+            }
+            return rating_unique
+        }
+
+        function getYear() {
+            let year = []
+
+            for (let i = 1980; i <= 2016; i++) {
+                year.push(i)
+            }
+            return year;
+        }
+
+        function filtering(data) {
+            filtrirane_igre = {}
+            najbolj_primerni = []
+
+            let platform = $("#platform_select").val()
+            let min_year = $("#min_year_select").val()
+            let max_year = $("#max_year_select").val()
+            let genre = $("#genre_select").val()
+            let publisher = $("#publisher_select").val()
+            let developer = $("#developer_select").val()
+            let rating = $("#rating_select").val()
+
+            for (key in data) {
+                let is_platform = false;
+                let is_min_year = false;
+                let is_max_year = false;
+                let is_genre = false;
+                let is_publisher = false;
+                let is_developer = false;
+                let is_rating = false;
+
+                for (atribut in data[key]) {
+                    if (atribut == "Platform" && platform != "" && data[key][atribut] == platform) {
+                        is_platform = true
+                    }
+                    else {
+                        if (platform == "") {
+                            is_platform = true
+                        }
+                    }
+
+                    if (atribut == "Year_of_Release" && min_year != "" && data[key][atribut] >= min_year) {
+                        is_min_year = true
+                    }
+                    else {
+                        if (min_year == "") {
+                            is_min_year = true
+                        }
+                    }
+                    if (atribut == "Year_of_Release" && max_year != "" && data[key][atribut] <= max_year) {
+                        is_max_year = true
+                    }
+                    else {
+                        if (max_year == "") {
+                            is_max_year = true
+                        }
+                    }
+                    if (atribut == "Genre" && genre != "" && data[key][atribut] == genre) {
+                        is_genre = true
+                    }
+                    else {
+                        if (genre == "") {
+                            is_genre = true
+                        }
+                    }
+                    if (atribut == "Publisher" && publisher != "" && data[key][atribut] == publisher) {
+                        is_publisher = true
+                    }
+                    else {
+                        if (publisher == "") {
+                            is_publisher = true
+                        }
+                    }
+                    if (atribut == "Developer" && developer != "" && data[key][atribut] == developer) {
+                        is_developer = true
+                    }
+                    else {
+                        if (developer == "") {
+                            is_developer = true
+                        }
+                    }
+                    if (atribut == "Rating" && rating != "" && data[key][atribut] == rating) {
+                        is_rating = true
+                    }
+                    else {
+                        if (rating == "") {
+                            is_rating = true
+                        }
+                    }
+                }
+
+                if (is_platform && is_min_year && is_max_year && is_genre && is_publisher && is_developer && is_rating) {
+                    filtrirane_igre[key] = data[key]
+                }
+            }
+
+
+            for (key in filtrirane_igre) {
+                let sales = filtrirane_igre[key]['Global_players']
+                let critic_score = filtrirane_igre[key]['Critic_Score']
+                let critic_count = filtrirane_igre[key]['Critic_Count']
+                let user_score = filtrirane_igre[key]['User_Score']
+                let user_count = filtrirane_igre[key]['User_Count']
+                let name = filtrirane_igre[key]['Name']
+
+                if (sales == "" || sales == "NA" ||
+                    critic_score == "" || critic_score == "NA" ||
+                    critic_count == "" || critic_count == "NA" ||
+                    user_score == "" || user_score == "NA" ||
+                    user_count == "" || user_count == "NA") {
+
+                    continue
+                }
+
+                sales = Number(filtrirane_igre[key]['Global_players'])
+                critic_score = Number(filtrirane_igre[key]['Critic_Score'])
+                critic_count = Number(filtrirane_igre[key]['Critic_Count'])
+                user_score = Number(filtrirane_igre[key]['User_Score'])
+                user_count = Number(filtrirane_igre[key]['User_Count'])
+
+                let ratio_critic = (critic_score / critic_count) * 0.35
+                let ratio_user = (user_score / user_count) * 0.5
+                let ratio_sales = sales * 0.15 * (Math.max(ratio_critic, ratio_user) / Math.min(ratio_critic, ratio_user))
+                ratio_sales = Math.round(ratio_sales * 100) / 100
+
+                najbolj_primerni.push([filtrirane_igre[key], ratio_sales])
+            }
+
+            najbolj_primerni = najbolj_primerni.sort((a, b) => { return b[1] - a[1] })
+        }
+
+
+        let videogames_data = {}
+        let filtrirane_igre = {}
+        let najbolj_primerni = []
+
+
+        Papa.parse("https://raw.githubusercontent.com/mh-developer/PR19MHATMF/master/podatki/video_game.csv", {
+            download: true,
+            header: true,
+            complete: function (results) {
+                videogames_data.data = results.data;
+
+                getPlatforms(videogames_data.data).forEach(element => {
+                    $('#platform_select').append(`
+                    <option value="${element}">${element}</option>
+                    `);
+                });
+
+                getGenre(videogames_data.data).forEach(element => {
+                    $('#genre_select').append(`
+                    <option value="${element}">${element}</option>
+                    `);
+                });
+
+                getPublisher(videogames_data.data).forEach(element => {
+                    $('#publisher_select').append(`
+                    <option value="${element}">${element}</option>
+                    `);
+                });
+
+                getDeveloper(videogames_data.data).forEach(element => {
+                    $('#developer_select').append(`
+                    <option value="${element}">${element}</option>
+                    `);
+                });
+
+                getRating(videogames_data.data).forEach(element => {
+                    $('#rating_select').append(`
+                    <option value="${element}">${element}</option>
+                    `);
+                });
+
+                getYear().forEach(element => {
+                    $('#min_year_select').append(`
+                    <option value="${element}">${element}</option>
+                    `);
+                    $('#max_year_select').append(`
+                    <option value="${element}">${element}</option>
+                    `);
+                });
+
+
+                filtering(videogames_data.data)
+
+                for (value in najbolj_primerni) {
+                    $('#table_body').append(`
+                    <tr>
+                        <th scope="row">${najbolj_primerni[value][0]["Rank"]}</th>
+                        <td>${najbolj_primerni[value][0]['Name']}</td>
+                        <td>${najbolj_primerni[value][0]['Platform']}</td>
+                        <td>${najbolj_primerni[value][0]['Year_of_Release']}</td>
+                        <td>${najbolj_primerni[value][0]['Genre']}</td>
+                        <td>${najbolj_primerni[value][0]['Publisher']}</td>
+                        <td>${najbolj_primerni[value][0]['Global_players']}</td>
+                        <td>${najbolj_primerni[value][0]['Critic_Score']}</td>
+                        <td>${najbolj_primerni[value][0]['Critic_Count']}</td>
+                        <td>${najbolj_primerni[value][0]['User_Score']}</td>
+                        <td>${najbolj_primerni[value][0]['User_Count']}</td>
+                        <td>${najbolj_primerni[value][0]['Developer']}</td>
+                        <td>${najbolj_primerni[value][0]['Rating']}</td>
+                        <td>${najbolj_primerni[value][1]}</td>
+                    </tr>
+                    `);
+                }
+            }
+        });
+
+
+
+        $(".dropdown_selected").change(function () {
+            $("#table_body").empty()
+
+            filtering(videogames_data.data)
+
+            for (value in najbolj_primerni) {
+                $('#table_body').append(`
+                    <tr>
+                        <th scope="row">${najbolj_primerni[value][0]["Rank"]}</th>
+                        <td>${najbolj_primerni[value][0]['Name']}</td>
+                        <td>${najbolj_primerni[value][0]['Platform']}</td>
+                        <td>${najbolj_primerni[value][0]['Year_of_Release']}</td>
+                        <td>${najbolj_primerni[value][0]['Genre']}</td>
+                        <td>${najbolj_primerni[value][0]['Publisher']}</td>
+                        <td>${najbolj_primerni[value][0]['Global_players']}</td>
+                        <td>${najbolj_primerni[value][0]['Critic_Score']}</td>
+                        <td>${najbolj_primerni[value][0]['Critic_Count']}</td>
+                        <td>${najbolj_primerni[value][0]['User_Score']}</td>
+                        <td>${najbolj_primerni[value][0]['User_Count']}</td>
+                        <td>${najbolj_primerni[value][0]['Developer']}</td>
+                        <td>${najbolj_primerni[value][0]['Rating']}</td>
+                        <td>${najbolj_primerni[value][1]}</td>
+                    </tr>
+                    `);
+            }
+
+            console.log(najbolj_primerni)
+        });
+    </script>
+</body>
+
+</html>
