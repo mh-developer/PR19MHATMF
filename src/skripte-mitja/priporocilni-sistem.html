@@ -107,7 +107,7 @@
             for (key in data) {
                 platforms_unique.add(data[key]["Platform"])
             }
-            return platforms_unique
+            return Array.from(platforms_unique).sort()
         }
 
         function getGenre(data) {
@@ -116,7 +116,7 @@
             for (key in data) {
                 genre_unique.add(data[key]["Genre"])
             }
-            return genre_unique
+            return Array.from(genre_unique).sort()
         }
 
         function getPublisher(data) {
@@ -125,7 +125,7 @@
             for (key in data) {
                 publisher_unique.add(data[key]["Publisher"])
             }
-            return publisher_unique
+            return Array.from(publisher_unique).sort()
         }
 
         function getDeveloper(data) {
@@ -134,7 +134,7 @@
             for (key in data) {
                 developer_unique.add(data[key]["Developer"])
             }
-            return developer_unique
+            return Array.from(developer_unique).sort()
         }
 
         function getRating(data) {
@@ -143,7 +143,7 @@
             for (key in data) {
                 rating_unique.add(data[key]["Rating"])
             }
-            return rating_unique
+            return Array.from(rating_unique).sort()
         }
 
         function getYear() {
